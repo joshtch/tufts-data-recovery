@@ -1,5 +1,5 @@
-Intro to Linux Command Line Interface
-=====================================
+Linux Command Line Interface
+============================
 
 Commands to know:
 
