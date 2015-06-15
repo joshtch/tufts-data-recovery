@@ -13,7 +13,7 @@ part of the `smartmontools` package.
 To start a quick test, use the following command, replacing `sdx` with the
 relevant device identifier.
 
-  # smartctl --test=short -d sat /dev/sdx
+    # smartctl --test=short -d sat /dev/sdx
 
 The `-d sat` part tells smartctl the drive is a SATA device.
 As always, refer to the manpage if you're not sure about anything
@@ -21,13 +21,13 @@ or if you want to learn more.
 
 After two minutes, the test should be finished. To see the results:
 
-  # smartctl -A -f brief -d sat /dev/sdx
+    # smartctl -A -f brief -d sat /dev/sdx
 
 I'll often open a new terminal window and run the following, so I don't have
 to remember to run it later. This will run the command automatically after
 a 2-minute wait:
 
-  $ sleep 2m; sudo smartctl -A -f brief -d sat /dev/sdx
+    $ sleep 2m; sudo smartctl -A -f brief -d sat /dev/sdx
 
 
 Interpreting the results
@@ -38,9 +38,9 @@ will be different for Seagates and Western Digitals, for example. The values
 in particular to look for, though, are the same. In order of importance, they
 are:
 
-  ID #198: `Offline Uncorrectable`,  
-  ID #5 or #196: `Reallocated Sector Count`  
-  ID #197: `Current Pending Sector`
+    ID #198: `Offline Uncorrectable`,  
+    ID #5 or #196: `Reallocated Sector Count`  
+    ID #197: `Current Pending Sector`
 
 If any of these have a `RAW_VALUE` greater than zero, the drive has started to
 fail. 
@@ -99,6 +99,6 @@ Running the Long Test
 Even if all four values are zero, the drive could still be failing. If the
 short test didn't find anything, try the long test.
 
-  # smartctl --test=long -d sat /dev/sdx
+    # smartctl --test=long -d sat /dev/sdx
 
 The results are interpreted the same way as for the short test.
